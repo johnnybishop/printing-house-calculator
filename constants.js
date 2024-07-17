@@ -30,18 +30,21 @@ COVER_REFINEMENTS = [
         price: 0.6,
     },
 ];
-CIRCULATION_RATIOS = [
-    { min: 300, max: 500, ratio: 1.2 },
-    { min: 501, max: 750, ratio: 1.15 },
-    { min: 751, max: 999, ratio: 1.1 },
-    { min: 1000, max: 1000, ratio: 1 },
-    { min: 1001, max: 1250, ratio: 0.98 },
-    { min: 1251, max: 1500, ratio: 0.96 },
-    { min: 1501, max: 2000, ratio: 0.91 },
-    { min: 2001, max: 3000, ratio: 0.88 },
-    { min: 3001, max: 4000, ratio: 0.87 },
-    { min: 4001, max: 5000, ratio: 0.86 },
-]
+const CIRCULATION_RATIOS = [
+    { min: 1000, max: 1000, ratio: 1.0 },
+    { min: 1001, max: 1250, ratio: 0.9878 },
+    { min: 1251, max: 1500, ratio: 0.9634 },
+    { min: 1501, max: 1750, ratio: 0.9268 },
+    { min: 1751, max: 2000, ratio: 0.9146 },
+    { min: 2001, max: 2200, ratio: 0.8902 },
+    { min: 2201, max: 2500, ratio: 0.8537 },
+    { min: 2501, max: 2750, ratio: 0.8415 },
+    { min: 2751, max: 3000, ratio: 0.8171 },
+    { min: 3001, max: 3200, ratio: 0.8049 },
+    { min: 3201, max: 3500, ratio: 0.7805 },
+    { min: 3501, max: 3750, ratio: 0.7561 },
+    { min: 3751, max: 4000, ratio: 0.7317 }
+];
 PAGE_NUMBER_RATIOS = [
     { min: 0, max: 95, ratio: 2 },
     { min: 96, max: 128, ratio: 1.8 },
