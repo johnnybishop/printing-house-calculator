@@ -48,7 +48,9 @@ function calculatePrice() {
     const coverRefinementsPrice = COVER_REFINEMENTS.find((v) => v.name === refinementCoverInput.value)?.price;
     const coverPrintingRatio = COVER_PRINTINGS.find((v) => v.name === coverPaperInput.value)?.ratio;
     const circulationRatio = CIRCULATION_RATIOS.find((v) => circulation >= v.min && circulation <= v.max)?.ratio ?? CIRCULATION_RATIOS.at(-1).ratio;
-    const pageNumberRatio = PAGE_NUMBER_RATIOS.find((v) => pagesNumber >= v.min && pagesNumber <= v.max)?.ratio ?? PAGE_NUMBER_RATIOS.at(-1).ratio;
+    // todo temporary disabled
+    // const pageNumberRatio = PAGE_NUMBER_RATIOS.find((v) => pagesNumber >= v.min && pagesNumber <= v.max)?.ratio ?? PAGE_NUMBER_RATIOS.at(-1).ratio;
+    const pageNumberRatio = 1;
 
 
     const bookPrice = (pagesNumber * pagePrice * bindingRatio + coverRefinementsPrice).toFixed(2);
