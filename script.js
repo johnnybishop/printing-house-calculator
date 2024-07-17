@@ -53,8 +53,8 @@ function calculatePrice() {
     const pageNumberRatio = 1;
 
 
-    const bookPrice = (pagesNumber * pagePrice * bindingRatio + coverRefinementsPrice).toFixed(2);
-    const totalPrice = (bookPrice * circulation * coverPrintingRatio * circulationRatio * pageNumberRatio).toFixed(2);
+    const bookPrice = ((pagesNumber * pagePrice * bindingRatio + coverRefinementsPrice) * circulationRatio).toFixed(2);
+    const totalPrice = (bookPrice * circulation * coverPrintingRatio * pageNumberRatio).toFixed(2);
 
     console.log('nakład mnożnik: ', circulationRatio);
     console.log('ilość stron mnożnik: ', pageNumberRatio);
