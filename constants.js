@@ -1,35 +1,62 @@
 PAPER_BOOK_INPUT_ID = 'paper_book';
+PAPER_WEIGHT_INPUT_ID='paper_weight';
 BINDING_INPUT_ID = 'binding';
 PAPER_COVER_INPUT_ID = 'paper_cover';
 REFINEMENT_COVER_INPUT_ID = 'refinement_cover'
 PAGES_NUMBER_INPUT_ID = 'pages_number'
 CIRCULATION_INPUT_ID = 'circulation'
-PAPER_SPECS = [
-    { name: "a5_80g", displayName: "148mmx210mm A5 80g", price: 0.019 },
-    { name: "a5_70g", displayName: "148mmx210mm A5 70g", price: 0.018 },
-    { name: "a5_90g", displayName: "148mmx210mm A5 90g", price: 0.021 },
-    { name: "b5_70g", displayName: "B5 pomniejszony 70g", price: 0.017 },
-    { name: "a5_creamy_80g_v2", displayName: "148mmx210mm A5 creamy 80g v.2.0", price: 0.021 },
-    { name: "b5_80g", displayName: "B5 pomniejszony 80g", price: 0.02 },
-    { name: "b5_90g", displayName: "B5 pomniejszony 90g", price: 0.023 },
-    { name: "b5_creamy_80g_v2", displayName: "B5 pomniejszony creamy 80g v.2.0", price: 0.023 },
-    { name: "b5_creamy_90g_v2", displayName: "B5 pomniejszony creamy 90g v.2.0", price: 0.026 },
-    { name: "size_170x240_70g", displayName: "170mmx240mm 70g", price: 0.021 },
-    { name: "size_170x240_80g", displayName: "170mmx240mm 80g", price: 0.024 },
-    { name: "size_170x240_90g", displayName: "170mmx240mm 90g", price: 0.027 },
-    { name: "size_170x240_creamy_80g_v2", displayName: "170mmx240mm creamy 80g v.2.0", price: 0.027 },
-    { name: "size_170x240_creamy_90g_v2", displayName: "170mmx240mm creamy 90g v.2.0", price: 0.03 },
-    { name: "size_165x235_70g", displayName: "165mmx235mm 70g", price: 0.021 },
-    { name: "size_165x235_80g", displayName: "165mmx235mm 80g", price: 0.024 },
-    { name: "size_165x235_90g", displayName: "165mmx235mm 90g", price: 0.027 },
-    { name: "size_165x235_creamy_80g_v2", displayName: "165mmx235mm creamy 80g v.2.0", price: 0.027 },
-    { name: "size_165x235_creamy_90g_v2", displayName: "165mmx235mm creamy 90g v.2.0", price: 0.03 },
-    { name: "size_158x235_70g", displayName: "158mmx235mm 70g", price: 0.021 },
-    { name: "size_158x235_80g", displayName: "158mmx235mm 80g", price: 0.024 },
-    { name: "size_158x235_90g", displayName: "158mmx235mm 90g", price: 0.027 },
-    { name: "size_158x235_creamy_80g_v2", displayName: "158mmx235mm creamy 80g v.2.0", price: 0.027 },
-    { name: "size_158x235_creamy_90g_v2", displayName: "158mmx235mm creamy 90g v.2.0", price: 0.03 }
-];
+PAPER_SPECS = {
+    a5: {
+        displayName: "148mmx210mm A5",
+        weights: {
+            "70g": 0.018,
+            "80g": 0.019,
+            "90g": 0.021,
+            "creamy_80g_v2": 0.021,
+        }
+    },
+    b5_pomniejszony: {
+        displayName: "B5 pomniejszony (165mmx235mm)",
+        weights: {
+            "70g": 0.017,
+            "80g": 0.02,
+            "90g": 0.023,
+            "creamy_80g_v2": 0.023,
+            "creamy_90g_v2": 0.026
+        }
+    },
+    size_170x240: {
+        displayName: "170mmx240mm",
+        weights: {
+            "70g": 0.021,
+            "80g": 0.024,
+            "90g": 0.027,
+            "creamy_80g_v2": 0.027,
+            "creamy_90g_v2": 0.03
+        }
+    },
+    size_165x235: {
+        displayName: "165mmx235mm",
+        weights: {
+            "70g": 0.021,
+            "80g": 0.024,
+            "90g": 0.027,
+            "creamy_80g_v2": 0.027,
+            "creamy_90g_v2": 0.03
+        }
+    },
+    size_158x235: {
+        displayName: "158mmx235mm",
+        weights: {
+            "70g": 0.021,
+            "80g": 0.024,
+            "90g": 0.027,
+            "creamy_80g_v2": 0.027,
+            "creamy_90g_v2": 0.03
+        }
+    }
+};
+
 BINDINGS = [
     { name: "soft", displayName: "Miękka", ratio: 1.0 },
     { name: "soft_wings", displayName: "Miękka ze skrzydełkami", ratio: 1.15 },

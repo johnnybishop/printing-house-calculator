@@ -2,16 +2,26 @@
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    createSelectField(PAPER_SPECS, PAPER_BOOK_INPUT_ID);
+    const formatOptionsConfig = Object.keys(PAPER_SPECS).map(key => ({
+        name: key,
+        displayName: PAPER_SPECS[key].displayName
+    }));
+    const weightInput =  document.getElementById(PAPER_BOOK_INPUT_ID);
+    createSelectField(formatOptionsConfig, PAPER_BOOK_INPUT_ID);
     createSelectField(BINDINGS, BINDING_INPUT_ID);
     createSelectField(COVER_PRINTINGS, PAPER_COVER_INPUT_ID);
     createSelectField(COVER_REFINEMENTS, REFINEMENT_COVER_INPUT_ID);
     validateCirculationAndPagesNumber()
+    updateWeightSelect(weightInput.value);
 
     document.getElementById('submit-btn').addEventListener('click', () => calculatePrice());
 
-});
+    weightInput.addEventListener('change', (event) => {
+        const selectedFormatKey = event.target.value;
+        updateWeightSelect(selectedFormatKey);
+    });
 
+});
 
 function createSelectField(optionsConfig, id) {
     const selectElement = document.getElementById(id);
@@ -19,6 +29,8 @@ function createSelectField(optionsConfig, id) {
     if (!selectElement) {
         return;
     }
+
+    selectElement.innerHTML = ''; // Clear existing options
 
     optionsConfig.forEach((config) => {
         const option = document.createElement('option');
@@ -28,10 +40,22 @@ function createSelectField(optionsConfig, id) {
     })
 }
 
+function updateWeightSelect(formatKey) {
+    if (!PAPER_SPECS[formatKey]) return;
+
+    const weightOptionsConfig = Object.keys(PAPER_SPECS[formatKey].weights).map(weightKey => ({
+        name: weightKey,
+        displayName: weightKey.replace(/_/g, ' ') // Replace underscores for better readability
+    }));
+
+    createSelectField(weightOptionsConfig, PAPER_WEIGHT_INPUT_ID);
+}
+
 function calculatePrice() {
     const pagesNumberInput = document.getElementById(PAGES_NUMBER_INPUT_ID);
     const circulationInput = document.getElementById(CIRCULATION_INPUT_ID);
     const paperBookInput = document.getElementById(PAPER_BOOK_INPUT_ID);
+    const paperWeightInput = document.getElementById(PAPER_WEIGHT_INPUT_ID);
     const bindingInput = document.getElementById(BINDING_INPUT_ID);
     const refinementCoverInput = document.getElementById(REFINEMENT_COVER_INPUT_ID);
     const coverPaperInput = document.getElementById(PAPER_COVER_INPUT_ID);
@@ -43,7 +67,7 @@ function calculatePrice() {
 
     const pagesNumber = +pagesNumberInput.value;
     const circulation = +circulationInput.value;
-    const pagePrice = PAPER_SPECS.find((v) => v.name === paperBookInput.value)?.price;
+    const pagePrice = getPriceForFormatAndWeight(paperBookInput.value, paperWeightInput.value)
     const bindingRatio = BINDINGS.find((v) => v.name === bindingInput.value)?.ratio;
     const coverRefinementsPrice = COVER_REFINEMENTS.find((v) => v.name === refinementCoverInput.value)?.price;
     const coverPrintingRatio = COVER_PRINTINGS.find((v) => v.name === coverPaperInput.value)?.ratio;
@@ -93,7 +117,6 @@ function validateCirculationAndPagesNumber() {
 
     [pagesNumberInput, circulationInput].forEach((input,index) => input.addEventListener('input', (event) => {
         const errorMessage = input.nextElementSibling;
-        console.log(event);
         if (!Number.isInteger(+event.target.value) || (event.target.id === 'circulation' && +event.target.value < 300) || +event.target.value < 1) { // todo dirty hack for validation
             input.classList.add('invalid');
             errorMessage.style.display = 'block';
@@ -102,4 +125,15 @@ function validateCirculationAndPagesNumber() {
             errorMessage.style.display = 'none';
         }
     }))
+}
+
+function getPriceForFormatAndWeight(format, weight) {
+    const formatKey = format.toLowerCase().replace(/ /g, '_'); // e.g., "A5" -> "a5"
+    const formatData = PAPER_SPECS[formatKey];
+    
+    if (formatData && formatData.weights[weight]) {
+        return formatData.weights[weight];
+    }
+    
+    return null; // Return null if format or weight is not found
 }

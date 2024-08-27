@@ -11,8 +11,12 @@
         <form id="multiStepForm">
             <div class="form-step form-step-active">
                 <h2>Kalkulator ceny usługi</h2>
-                <label for="paper_book">Format i papier</label>
+                <label for="paper_book">Format</label>
                 <select id="paper_book" required>
+                    <option value="" disabled selected>Wybierz</option>
+                </select>
+                <label for="paper_weight">Papier</label>
+                <select id="paper_weight" required>
                     <option value="" disabled selected>Wybierz</option>
                 </select>
                 <label for="binding">Oprawa</label>
