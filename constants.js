@@ -6,6 +6,26 @@ REFINEMENT_COVER_INPUT_ID = 'refinement_cover'
 PAGES_NUMBER_INPUT_ID = 'pages_number'
 CIRCULATION_INPUT_ID = 'circulation'
 PAPER_SPECS = {
+    size_115x190: {
+        displayName: "115mmx190mm",
+        weights: {
+            "70g": null,
+            "80g": null,
+            "90g": null,
+            "creamy_80g_v2": null,
+            "creamy_90g_v2": null
+        }
+    },
+    size_140x208: {
+        displayName: "140mmx208mm",
+        weights: {
+            "70g": null,
+            "80g": null,
+            "90g": null,
+            "creamy_80g_v2": null,
+            "creamy_90g_v2": null
+        }
+    },
     a5: {
         displayName: "148mmx210mm A5",
         weights: {
@@ -13,6 +33,27 @@ PAPER_SPECS = {
             "80g": 0.019,
             "90g": 0.021,
             "creamy_80g_v2": 0.021,
+            "creamy_90g_v2": null
+        }
+    },
+    size_158x235: {
+        displayName: "158mmx235mm",
+        weights: {
+            "70g": 0.021,
+            "80g": 0.024,
+            "90g": 0.027,
+            "creamy_80g_v2": 0.027,
+            "creamy_90g_v2": 0.03
+        }
+    },
+    size_165x235: {
+        displayName: "165mmx235mm",
+        weights: {
+            "70g": 0.021,
+            "80g": 0.024,
+            "90g": 0.027,
+            "creamy_80g_v2": 0.027,
+            "creamy_90g_v2": 0.03
         }
     },
     b5_pomniejszony: {
@@ -35,24 +76,14 @@ PAPER_SPECS = {
             "creamy_90g_v2": 0.03
         }
     },
-    size_165x235: {
-        displayName: "165mmx235mm",
+    size_200x210: {
+        displayName: "200mmx210mm",
         weights: {
-            "70g": 0.021,
-            "80g": 0.024,
-            "90g": 0.027,
-            "creamy_80g_v2": 0.027,
-            "creamy_90g_v2": 0.03
-        }
-    },
-    size_158x235: {
-        displayName: "158mmx235mm",
-        weights: {
-            "70g": 0.021,
-            "80g": 0.024,
-            "90g": 0.027,
-            "creamy_80g_v2": 0.027,
-            "creamy_90g_v2": 0.03
+            "70g": null,
+            "80g": null,
+            "90g": null,
+            "creamy_80g_v2": null,
+            "creamy_90g_v2": null
         }
     }
 };
