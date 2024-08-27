@@ -43,7 +43,7 @@ function createSelectField(optionsConfig, id) {
 function updateWeightSelect(formatKey) {
     if (!PAPER_SPECS[formatKey]) return;
 
-    const weightOptionsConfig = Object.keys(PAPER_SPECS[formatKey].weights).map(weightKey => ({
+    const weightOptionsConfig = Object.entries(PAPER_SPECS[formatKey].weights).filter(([weightKey, weightValue])=> weightValue !== null).map(([weightKey])=> ({
         name: weightKey,
         displayName: weightKey.replace(/_/g, ' ') // Replace underscores for better readability
     }));

@@ -1,5 +1,5 @@
 PAPER_BOOK_INPUT_ID = 'paper_book';
-PAPER_WEIGHT_INPUT_ID='paper_weight';
+PAPER_WEIGHT_INPUT_ID = 'paper_weight';
 BINDING_INPUT_ID = 'binding';
 PAPER_COVER_INPUT_ID = 'paper_cover';
 REFINEMENT_COVER_INPUT_ID = 'refinement_cover'
@@ -13,7 +13,6 @@ PAPER_SPECS = {
             "80g": null,
             "90g": null,
             "creamy_80g_v2": null,
-            "creamy_90g_v2": null
         }
     },
     size_140x208: {
@@ -23,7 +22,6 @@ PAPER_SPECS = {
             "80g": null,
             "90g": null,
             "creamy_80g_v2": null,
-            "creamy_90g_v2": null
         }
     },
     a5: {
@@ -33,7 +31,6 @@ PAPER_SPECS = {
             "80g": 0.019,
             "90g": 0.021,
             "creamy_80g_v2": 0.021,
-            "creamy_90g_v2": null
         }
     },
     size_158x235: {
@@ -43,7 +40,6 @@ PAPER_SPECS = {
             "80g": 0.024,
             "90g": 0.027,
             "creamy_80g_v2": 0.027,
-            "creamy_90g_v2": 0.03
         }
     },
     size_165x235: {
@@ -53,7 +49,6 @@ PAPER_SPECS = {
             "80g": 0.024,
             "90g": 0.027,
             "creamy_80g_v2": 0.027,
-            "creamy_90g_v2": 0.03
         }
     },
     b5_pomniejszony: {
@@ -63,7 +58,6 @@ PAPER_SPECS = {
             "80g": 0.02,
             "90g": 0.023,
             "creamy_80g_v2": 0.023,
-            "creamy_90g_v2": 0.026
         }
     },
     size_170x240: {
@@ -83,7 +77,6 @@ PAPER_SPECS = {
             "80g": null,
             "90g": null,
             "creamy_80g_v2": null,
-            "creamy_90g_v2": null
         }
     }
 };
