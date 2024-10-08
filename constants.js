@@ -6,29 +6,20 @@ REFINEMENT_COVER_INPUT_ID = 'refinement_cover'
 PAGES_NUMBER_INPUT_ID = 'pages_number'
 CIRCULATION_INPUT_ID = 'circulation'
 PAPER_SPECS = {
-    size_115x190: {
-        displayName: "115mmx190mm",
-        weights: {
-            "70g": null,
-            "80g": null,
-            "90g": null,
-            "creamy_80g_v2": null,
-        }
-    },
-    size_140x208: {
-        displayName: "140mmx208mm",
-        weights: {
-            "70g": null,
-            "80g": null,
-            "90g": null,
-            "creamy_80g_v2": null,
-        }
-    },
     a5: {
         displayName: "148mmx210mm A5",
         weights: {
             "70g": 0.018,
-            "80g": 0.019,
+            "80g": 0.01893, 
+            "90g": 0.021,
+            "creamy_80g_v2": 0.021,
+        }
+    },
+    size_140x208: {
+        displayName: "140mmx208mm A5 pomniejszony",
+        weights: {
+            "70g": 0.018,
+            "80g": 0.01893,
             "90g": 0.021,
             "creamy_80g_v2": 0.021,
         }
@@ -73,13 +64,14 @@ PAPER_SPECS = {
     size_200x210: {
         displayName: "200mmx210mm",
         weights: {
-            "70g": null,
-            "80g": null,
-            "90g": null,
-            "creamy_80g_v2": null,
+            "70g": 0.021,
+            "80g": 0.03,
+            "90g": 0.033,
+            "creamy_80g_v2": 0.033,
         }
     }
 };
+
 
 BINDINGS = [
     { name: "soft", displayName: "Miękka", ratio: 1.0 },
@@ -117,13 +109,15 @@ const CIRCULATION_RATIOS = [
     { min: 3751, max: 4000, ratio: 0.7317 }
 ];
 PAGE_NUMBER_RATIOS = [
-    { min: 0, max: 95, ratio: 2 },
+    { min: 30, max: 39, ratio: 2.4 },
+    { min: 40, max: 79, ratio: 2.2 },
+    { min: 80, max: 80, ratio: 2 },
     { min: 96, max: 128, ratio: 1.8 },
-    { min: 144, max: 176, ratio: 1.75 },
-    { min: 192, max: 240, ratio: 1.7 },
-    { min: 256, max: 304, ratio: 1.65 },
-    { min: 320, max: 384, ratio: 1.6 },
-    { min: 400, max: 464, ratio: 1.55 },
-    { min: 480, max: 560, ratio: 1.5 },
-    { min: 576, max: 624, ratio: 1.45 },
+    { min: 144, max: 176, ratio: 1.7 },
+    { min: 192, max: 240, ratio: 1.6 },
+    { min: 256, max: 304, ratio: 1.4 },
+    { min: 320, max: 384, ratio: 1.2 },
+    { min: 400, max: 464, ratio: 1 },
+    { min: 480, max: 560, ratio: 0.95 },
+    { min: 576, max: 624, ratio: 0.9 },
 ];
