@@ -8,7 +8,7 @@ Author: Jan Biskup
 
 // Enqueue CSS and JavaScript files
 function printing_house_calculator_enqueue_assets() {
-    wp_enqueue_style('printing-house-calculator-styles', plugin_dir_url(__FILE__) . 'assets/css/style.css');
+    wp_enqueue_style('printing-house-calculator-styles', plugin_dir_url(__FILE__) . 'assets/css/styles.css');
     wp_enqueue_script('printing-house-calculator-script', plugin_dir_url(__FILE__) . 'assets/js/script.js', array(), false, true);
     wp_enqueue_script('printing-house-calculator-constants', plugin_dir_url(__FILE__) . 'assets/js/constants.js', array(), false, true);
 }
