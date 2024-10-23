@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator ceny usług</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <div class="form-container">
@@ -43,8 +43,8 @@
             <div id="result" class="result"></div>
         </form>
     </div>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/constants.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/constants.js"></script>
 
 </body>
 </html>

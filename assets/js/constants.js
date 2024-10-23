@@ -94,6 +94,9 @@ COVER_REFINEMENTS = [
     },
 ];
 const CIRCULATION_RATIOS = [
+    { min: 300, max: 499, ratio: 1.6666 },
+    { min: 500, max: 749, ratio: 1.3166 },
+    { min: 750, max: 999, ratio: 1.0278 },
     { min: 1000, max: 1000, ratio: 1.0 },
     { min: 1001, max: 1250, ratio: 0.9878 },
     { min: 1251, max: 1500, ratio: 0.9634 },
