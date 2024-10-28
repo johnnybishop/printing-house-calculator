@@ -76,10 +76,10 @@ function calculatePrice() {
 
     const bookPrice = ((pagesNumber * pagePrice * bindingRatio + coverRefinementsPrice) * circulationRatio).toFixed(2);
     const totalPrice = (bookPrice * circulation * coverPrintingRatio * pageNumberRatio).toFixed(2);
-
+    const meanBookPrice = (totalPrice / circulation).toFixed(2)
     console.log('nakład mnożnik: ', circulationRatio);
     console.log('ilość stron mnożnik: ', pageNumberRatio);
-    console.log('cena jednej ksiazki: ', bookPrice);
+    console.log('cena jednej ksiazki: ', meanBookPrice);
     console.log('cena całkowita: ', totalPrice);
 
     const resultDiv = document.getElementById('result');
@@ -91,7 +91,7 @@ function calculatePrice() {
         ['mnożnik zadruk okładki', coverPrintingRatio],
         ['mnożnik nakład', circulationRatio],
         ['mnożnik ilość stron', pageNumberRatio],
-        ['cena jednej książki', bookPrice],
+        ['cena jednej książki', meanBookPrice],
         ['cena całkowita', totalPrice]
     ]
 
