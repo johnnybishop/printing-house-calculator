@@ -2,21 +2,22 @@ PAPER_BOOK_INPUT_ID = 'paper_book';
 PAPER_WEIGHT_INPUT_ID = 'paper_weight';
 BINDING_INPUT_ID = 'binding';
 PAPER_COVER_INPUT_ID = 'paper_cover';
+INSIDE_COVER_INPUT_ID = 'inside_cover';
 REFINEMENT_COVER_INPUT_ID = 'refinement_cover'
 PAGES_NUMBER_INPUT_ID = 'pages_number'
 CIRCULATION_INPUT_ID = 'circulation'
 PAPER_SPECS = {
     a5: {
-        displayName: "148mmx210mm A5",
+        displayName: "148x210 A5",
         weights: {
             "70g": 0.018,
-            "80g": 0.01893, 
+            "80g": 0.01893,
             "90g": 0.021,
             "creamy_80g_v2": 0.021,
         }
     },
     size_140x208: {
-        displayName: "140mmx208mm A5 pomniejszony",
+        displayName: "140x208 A5 pomniejszony",
         weights: {
             "70g": 0.018,
             "80g": 0.01893,
@@ -25,7 +26,7 @@ PAPER_SPECS = {
         }
     },
     size_158x235: {
-        displayName: "158mmx235mm",
+        displayName: "158x235",
         weights: {
             "70g": 0.021,
             "80g": 0.024,
@@ -34,7 +35,7 @@ PAPER_SPECS = {
         }
     },
     size_165x235: {
-        displayName: "165mmx235mm",
+        displayName: "165x235",
         weights: {
             "70g": 0.021,
             "80g": 0.024,
@@ -43,7 +44,7 @@ PAPER_SPECS = {
         }
     },
     b5_pomniejszony: {
-        displayName: "B5 pomniejszony (165mmx235mm)",
+        displayName: "165x235 B5 pomniejszony",
         weights: {
             "70g": 0.017,
             "80g": 0.02,
@@ -52,7 +53,7 @@ PAPER_SPECS = {
         }
     },
     size_170x240: {
-        displayName: "170mmx240mm",
+        displayName: "170x240",
         weights: {
             "70g": 0.021,
             "80g": 0.024,
@@ -62,7 +63,7 @@ PAPER_SPECS = {
         }
     },
     size_200x210: {
-        displayName: "200mmx210mm",
+        displayName: "200x210",
         weights: {
             "70g": 0.021,
             "80g": 0.03,
@@ -83,9 +84,15 @@ COVER_PRINTINGS = [
     { name: "3/0", displayName: "3/0", ratio: 1.0 },
     { name: "4/0", displayName: "4/0", ratio: 1.0 },
 ];
+INSIDE_PRINTINGS = [
+    { name: "1_plus_1_black", displayName: "1+1 (czarny)", ratio: 1, displayPantone: false },
+    { name: "1_plus_1_pantone", displayName: "1+1 (pantone)", ratio: 1.15, displayPantone: true },
+    { name: "2_plus_2_black_pantone", displayName: "2+2 (czarny + pantone)", ratio: 1.25, displayPantone: true },
+];
 COVER_REFINEMENTS = [
     { name: "foil_gloss", displayName: "Folia błysk", price: 0.15 },
-    { name: "foil_matt", displayName: "Folia mat UV", price: 0.33 },
+    { name: "foil_matt", displayName: "Folia mat", price: 0.17 },
+    { name: "foil_matt_uv", displayName: "Folia mat UV", price: 0.33 },
     { name: "foil_soft_touch", displayName: "Folia soft touch", price: 0.35 },
     {
         name: "foil_soft_touch_uv",

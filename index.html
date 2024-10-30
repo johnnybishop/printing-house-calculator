@@ -27,6 +27,10 @@
                 <select id="paper_cover" required>
                     <option value="" disabled selected>Wybierz</option>
                 </select>
+                <label for="inside_cover">Zadruk środka</label>
+                <select id="inside_cover" required>
+                    <option value="" disabled selected>Wybierz</option>
+                </select>
                 <label for="refinement_cover">Uszlachetnienie</label>
                 <select id="refinement_cover" required>
                     <option value="" disabled selected>Wybierz</option>

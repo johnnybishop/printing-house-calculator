@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     createSelectField(BINDINGS, BINDING_INPUT_ID);
     createSelectField(COVER_PRINTINGS, PAPER_COVER_INPUT_ID);
     createSelectField(COVER_REFINEMENTS, REFINEMENT_COVER_INPUT_ID);
+    createSelectField(INSIDE_PRINTINGS, INSIDE_COVER_INPUT_ID);
     validateCirculationAndPagesNumber()
     updateWeightSelect(weightInput.value);
 
@@ -59,6 +60,7 @@ function calculatePrice() {
     const bindingInput = document.getElementById(BINDING_INPUT_ID);
     const refinementCoverInput = document.getElementById(REFINEMENT_COVER_INPUT_ID);
     const coverPaperInput = document.getElementById(PAPER_COVER_INPUT_ID);
+    const coverInsideInput = document.getElementById(INSIDE_COVER_INPUT_ID);
 
 
     if (!pagesNumberInput || !circulationInput || pagesNumberInput.classList.contains('invalid') || circulationInput.classList.contains('invalid')) {
@@ -73,14 +75,12 @@ function calculatePrice() {
     const coverPrintingRatio = COVER_PRINTINGS.find((v) => v.name === coverPaperInput.value)?.ratio;
     const circulationRatio = CIRCULATION_RATIOS.find((v) => circulation >= v.min && circulation <= v.max)?.ratio ?? CIRCULATION_RATIOS.at(-1).ratio;
     const pageNumberRatio = PAGE_NUMBER_RATIOS.find((v) => pagesNumber >= v.min && pagesNumber <= v.max)?.ratio ?? PAGE_NUMBER_RATIOS.at(-1).ratio;
+    const insidePrintingRatio = INSIDE_PRINTINGS.find((v) => v.name === coverInsideInput.value)?.ratio;
 
-    const bookPrice = ((pagesNumber * pagePrice * bindingRatio + coverRefinementsPrice) * circulationRatio).toFixed(2);
+    const bookPrice = ((pagesNumber * pagePrice * bindingRatio * insidePrintingRatio + coverRefinementsPrice) * circulationRatio).toFixed(2);
     const totalPrice = (bookPrice * circulation * coverPrintingRatio * pageNumberRatio).toFixed(2);
     const meanBookPrice = (totalPrice / circulation).toFixed(2)
-    console.log('nakład mnożnik: ', circulationRatio);
-    console.log('ilość stron mnożnik: ', pageNumberRatio);
-    console.log('cena jednej ksiazki: ', meanBookPrice);
-    console.log('cena całkowita: ', totalPrice);
+
 
     const resultDiv = document.getElementById('result');
     
