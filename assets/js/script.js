@@ -1,12 +1,9 @@
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
     const formatOptionsConfig = Object.keys(PAPER_SPECS).map(key => ({
         name: key,
         displayName: PAPER_SPECS[key].displayName
     }));
-    const weightInput =  document.getElementById(PAPER_BOOK_INPUT_ID);
+    const weightInput = document.getElementById(PAPER_BOOK_INPUT_ID);
     createSelectField(formatOptionsConfig, PAPER_BOOK_INPUT_ID);
     createSelectField(BINDINGS, BINDING_INPUT_ID);
     createSelectField(COVER_PRINTINGS, PAPER_COVER_INPUT_ID);
@@ -44,7 +41,7 @@ function createSelectField(optionsConfig, id) {
 function updateWeightSelect(formatKey) {
     if (!PAPER_SPECS[formatKey]) return;
 
-    const weightOptionsConfig = Object.entries(PAPER_SPECS[formatKey].weights).filter(([weightKey, weightValue])=> weightValue !== null).map(([weightKey])=> ({
+    const weightOptionsConfig = Object.entries(PAPER_SPECS[formatKey].weights).filter(([weightKey, weightValue]) => weightValue !== null).map(([weightKey]) => ({
         name: weightKey,
         displayName: weightKey.replace(/_/g, ' ') // Replace underscores for better readability
     }));
@@ -78,21 +75,15 @@ function calculatePrice() {
     const insidePrintingRatio = INSIDE_PRINTINGS.find((v) => v.name === coverInsideInput.value)?.ratio;
 
     const bookPrice = ((pagesNumber * pagePrice * bindingRatio * insidePrintingRatio + coverRefinementsPrice) * circulationRatio).toFixed(2);
-    const totalPrice = (bookPrice * circulation * coverPrintingRatio * pageNumberRatio).toFixed(2);
-    const meanBookPrice = (totalPrice / circulation).toFixed(2)
+    const totalPrice = (bookPrice * circulation * coverPrintingRatio * pageNumberRatio);
+    const meanBookPrice = (totalPrice / circulation);
 
 
     const resultDiv = document.getElementById('result');
-    
+
     const values = [
-        ['cena strony', pagePrice],
-        ['mnożnik oprawa', bindingRatio],
-        ['uszlachetnienie okładki cena', coverRefinementsPrice],
-        ['mnożnik zadruk okładki', coverPrintingRatio],
-        ['mnożnik nakład', circulationRatio],
-        ['mnożnik ilość stron', pageNumberRatio],
-        ['cena jednej książki', meanBookPrice],
-        ['cena całkowita', totalPrice]
+        ['Cena jednej książki', getPriceInCurrencyString(meanBookPrice)],
+        ['Cena całkowita', getPriceInCurrencyString(totalPrice)]
     ]
 
     resultDiv.innerHTML = ''
@@ -104,6 +95,10 @@ function calculatePrice() {
     }
 }
 
+function getPriceInCurrencyString(price, currencyCode = 'PLN') {
+    return `${price.toFixed(2)} ${currencyCode}`;
+}
+
 function validateCirculationAndPagesNumber() {
     const pagesNumberInput = document.getElementById(PAGES_NUMBER_INPUT_ID);
     const circulationInput = document.getElementById(CIRCULATION_INPUT_ID);
@@ -112,7 +107,7 @@ function validateCirculationAndPagesNumber() {
         return;
     }
 
-    [pagesNumberInput, circulationInput].forEach((input,index) => input.addEventListener('input', (event) => {
+    [pagesNumberInput, circulationInput].forEach((input, index) => input.addEventListener('input', (event) => {
         const errorMessage = input.nextElementSibling;
         if (!Number.isInteger(+event.target.value) || (event.target.id === 'circulation' && +event.target.value < 300) || +event.target.value < 1) { // todo dirty hack for validation
             input.classList.add('invalid');
@@ -127,10 +122,10 @@ function validateCirculationAndPagesNumber() {
 function getPriceForFormatAndWeight(format, weight) {
     const formatKey = format.toLowerCase().replace(/ /g, '_'); // e.g., "A5" -> "a5"
     const formatData = PAPER_SPECS[formatKey];
-    
+
     if (formatData && formatData.weights[weight]) {
         return formatData.weights[weight];
     }
-    
+
     return null; // Return null if format or weight is not found
 }

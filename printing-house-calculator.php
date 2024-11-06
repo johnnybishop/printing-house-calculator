@@ -22,7 +22,3 @@ function printing_house_calculator_render_html() {
 }
 add_shortcode('printing_house_calculator', 'printing_house_calculator_render_html');
 
-function test_shortcode() {
-    return '<p>Shortcode is working!</p>';
-}
-add_shortcode('test_shortcode', 'test_shortcode');
