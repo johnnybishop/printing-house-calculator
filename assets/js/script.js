@@ -96,6 +96,9 @@ function calculatePrice() {
 }
 
 function getPriceInCurrencyString(price, currencyCode = 'PLN') {
+    if (isNaN(price)) {
+        return `0.00 ${currencyCode}`
+    }
     return `${price.toFixed(2)} ${currencyCode}`;
 }
 
